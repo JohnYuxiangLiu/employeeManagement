@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+//employees data model page
 namespace EmployeeManagement.Models
 {
     public class Employee
