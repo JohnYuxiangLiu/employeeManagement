@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Api.Models
 {
+    //DbContext is a medium interacting between db and entity class
     public class AppDbContext:DbContext
     {
         //in the constructor, pass db settings in appsettings.json as DbContextOptions to the contructor

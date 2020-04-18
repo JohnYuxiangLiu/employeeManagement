@@ -32,8 +32,17 @@ namespace EmployeeManagement.Api
             //last to import data, need to run 'Add-Migration InitialCreate' and 'Update-Database' in package console
             services.AddDbContext<AppDbContext>(options=>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
-            
+
+            //tie interface and implementations together by using scope method
+            //to make it run at start
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+
+
+
             services.AddControllers();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
