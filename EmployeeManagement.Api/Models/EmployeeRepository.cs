@@ -58,6 +58,7 @@ namespace EmployeeManagement.Api.Models
         public async Task<Employee> UpdateEmployee(Employee employee)
         {
             //find by employee id first
+            //compare user input with db data
             var result = await appDbContext.Employees.FirstOrDefaultAsync(e => e.EmployeeId == employee.EmployeeId);
 
             if (result != null)
