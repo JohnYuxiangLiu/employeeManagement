@@ -81,7 +81,7 @@ namespace EmployeeManagement.Api.Controllers
                     "Error retrieving data from the database");
             }
 
-            
+
             //postman post test data
             //"FirstName": "John",
             //"LastName": "Hastings",
@@ -122,6 +122,27 @@ namespace EmployeeManagement.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data from database");
             }
 
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        {
+            try
+            {
+                var employeeToDelete = await employeeRepository.GetEmployee(id);
+
+                if (employeeToDelete == null)
+                {
+                    return NotFound($"Employee with Id={id} not found");
+                }
+
+                return await employeeRepository.DeleteEmployee(id);
+
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data from database");
+            }
         }
 
     }
