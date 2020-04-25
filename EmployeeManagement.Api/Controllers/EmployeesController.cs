@@ -10,14 +10,17 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Api.Controllers
 {
+    //controller: is the employees
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
+        //readonly to avoid accidentally altered the reposiotry class
         private readonly IEmployeeRepository employeeRepository;
 
         public EmployeesController(IEmployeeRepository employeeRepository)
         {
+            //this employeeRepository refers to         private readonly IEmployeeRepository employeeRepository;
             this.employeeRepository = employeeRepository;
         }
 
@@ -35,6 +38,7 @@ namespace EmployeeManagement.Api.Controllers
             }
         }
 
+        //id is the /employees/id
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
@@ -142,6 +146,29 @@ namespace EmployeeManagement.Api.Controllers
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data from database");
+            }
+        }
+
+        //routing: /employees/search
+        [HttpGet("{search}")]
+        public async Task<ActionResult<IEnumerable<Employee>>> Search(string name, Gender? gender)
+        {
+            try
+            {
+                var result = await employeeRepository.Search(name, gender);
+
+                //if has any element
+                if (result.Any())
+                {
+                    return Ok(result);
+                }
+
+                //404
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error find data in database");
             }
         }
 

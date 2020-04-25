@@ -59,6 +59,27 @@ namespace EmployeeManagement.Api.Models
             return await appDbContext.Employees.ToListAsync();
         }
 
+        //search employee name and gender which is optional
+        public async Task<IEnumerable<Employee>> Search(string name, Gender? gender)
+        {
+            //provide func to query employees through appdbcontext
+            IQueryable<Employee> query = appDbContext.Employees;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                //query=: needs to asign to query to return
+                query=query.Where(e => e.FirstName.Contains(name) || e.LastName.Contains(name));
+            }
+
+            if (gender != null)
+            {
+                query=query.Where(e => e.Gender == gender);
+            }
+
+            return await query.ToListAsync();
+
+        }
+
         public async Task<Employee> UpdateEmployee(Employee employee)
         {
             //find by employee id first
@@ -82,5 +103,8 @@ namespace EmployeeManagement.Api.Models
 
             return null;
         }
+
+
+
     }
 }
