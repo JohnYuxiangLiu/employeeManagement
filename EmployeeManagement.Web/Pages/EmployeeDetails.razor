@@ -29,7 +29,9 @@ else
                     @* if no department data, then Department: N/A *@
                     <h4>Department: @(Employee.Department==null?"N/A":Employee.Department.DepartmentName)</h4>
 
-                    <div class="card-footer text-center">
+                    <button class="btn btn-primary" @onclick="Button_Click">@(ButtonText)</button>
+
+                    <div class="card-footer text-center @CssClass">
                         @* back is / because in employeeList @page is / *@
                         <a href="/" class="btn btn-primary m-1">Back</a>
                         <a href="#" class="btn btn-primary m-1">Edit</a>

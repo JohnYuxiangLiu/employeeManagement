@@ -28,10 +28,16 @@ namespace EmployeeManagement.Web.Pages
         //coordinates property
         protected string Coordinates { get; set; }
 
+        //button hide footer property
+        //assign ButtonText default value to Hide Text
+        protected string ButtonText { get; set; } = "Hide Footer";
+        protected string CssClass { get; set; }
+
 
         //asign http to employee by init razor component once ready
         protected async override Task OnInitializedAsync()
         {
+            //default to employee 1 details
             Id = Id ?? "1";
             Employee = await EmployeeService.GetEmployee(int.Parse(Id));
         }
@@ -41,6 +47,21 @@ namespace EmployeeManagement.Web.Pages
         protected void Mouse_Move(MouseEventArgs e)
         {
             Coordinates = $"X={e.ClientX}, Y={e.ClientY}"; 
+        }
+
+        //click button to hide footer
+        protected void Button_Click()
+        {
+            if(ButtonText=="Hide Footer")
+            {
+                ButtonText = "Show Footer";
+                CssClass = "HideFooter";
+            }
+            else
+            {
+                ButtonText = "Hide Footer";
+                CssClass = null;
+            }
         }
     }
 }
