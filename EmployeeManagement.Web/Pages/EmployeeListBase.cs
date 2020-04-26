@@ -14,7 +14,7 @@ namespace EmployeeManagement.Web.Pages
         //use inject instead of constructor to inject EmployeeService, because EmployeeListBase is a blazor component
         [Inject]
         public IEmployeeService EmployeeService { get; set; }
-
+        
         //create a connection of employee class
         public IEnumerable<Employee> Employees { get; set; }
 

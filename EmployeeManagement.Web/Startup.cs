@@ -30,7 +30,7 @@ namespace EmployeeManagement.Web
             services.AddRazorPages();
             services.AddServerSideBlazor();
             //binding between httpclient and employee type
-            services.AddHttpClient<IEmployeeService,EmployeeService>(client =>
+            services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44358/");
             });
