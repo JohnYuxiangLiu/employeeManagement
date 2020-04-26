@@ -12,7 +12,8 @@ namespace EmployeeManagement.Web.Pages
     public class EmployeeDetailsBase : ComponentBase
     {
         //to display employee
-        public Employee Employee { get; set; } = new Employee();
+        //public Employee Employee { get; set; } = new Employee();
+        public Employee Employee { get; set; }
 
         //inject dependcy to use getEmployee()
         [Inject]
