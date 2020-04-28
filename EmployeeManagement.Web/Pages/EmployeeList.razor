@@ -3,6 +3,10 @@
 
 <h3>EmployeeList</h3>
 
+@* show footer *@
+<input type="checkbox" id="showFooter" @bind="ShowFooter"/>
+<label for="showFooter">Toggle Footer</label>
+
 @* if employees data not been loaded yet *@
 @if (Employees == null)
 {
@@ -10,25 +14,16 @@
 }
 else
 {
-    <div class="card-deck">
-        @foreach (var employee in Employees)
-        {
-            //m-3: medius 3 bootstrap class for each card
-        <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
-            <div class="card-header">
-                <h3>@employee.FirstName @employee.LastName</h3>
-            </div>
+<div class="card-deck">
+    @foreach (var employee in Employees)
+    {
+        //passing 2 params to DisplayEmployee
+        //employee from this class, ShowFooter from EmployeeListBase class=true
+        <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"></DisplayEmployee>
 
-            <img class="card-img-top imageThumbnail" src="@employee.PhotoPath" />
-
-            <div class="card-footer text-center">
-                @* interpolation: $, c# code @ *@
-                <a href="@($"employeeDetails/{employee.EmployeeId}")" class="btn btn-primary m-1">View</a>
-                <a href="#" class="btn btn-primary m-1">Edit</a>
-                <a href="#" class="btn btn-danger m-1">Delete</a>
-            </div>
-        </div>
-        }
-
-    </div>
+    }
+</div>
 }
+
+
+

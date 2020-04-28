@@ -18,6 +18,9 @@ namespace EmployeeManagement.Web.Pages
         //create a connection of employee class
         public IEnumerable<Employee> Employees { get; set; }
 
+        //provides to EmployeeList
+        public bool ShowFooter { get; set; } = true;
+
 
 
         //load all employees list LoadEmployees to initaliser
