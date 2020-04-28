@@ -1,0 +1,36 @@
+﻿@inherits DatabindingDemoBase
+@page "/databindingdemo"
+
+<h3>DatabindingDemo</h3>
+
+<b>Name: </b> @(Name)
+<br />
+<b>Name with Salutation: </b>@(Gender=="Male"?$"Mr. {Name}" : $"Mr. Name")
+<br />
+<hr />
+@*<b>Two way binding: </b> <input value="@Name" @onchange="@(e => { Name = e.Value.ToString(); })"/>*@
+<b>Two way binding onchange: </b>
+<input value="@Name" @onchange="@(e => { Name = e.Value.ToString(); })" />
+<br />
+<div>
+    @*bind event oninput can be simultaneously change, however, it doesn't update other input fields, use follow @oninput*@
+    <b>Two way binding bind</b> <input @bind="Name" @bind:event="oninput" />
+</div>
+<br />
+<div>
+    @*best update all inc input fields, bind event oninput can be simultaneously change*@
+    <b>Two way binding bind</b> <input @oninput="@(e=>{Name=e.Value.ToString();})" />
+</div>
+<br />
+<hr />
+@* bind attributes, e.g. style attributes
+    bind-style must have bind event 
+    h3 will change the div's background color*@
+<div @bind-style="@Color" @bind-style:event="onchange"><h3>The background will be changed</h3></div>
+<b>Change background color: </b><input @bind="@Color" />
+
+
+
+
+
+
