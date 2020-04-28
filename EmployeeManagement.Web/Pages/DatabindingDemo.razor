@@ -28,7 +28,15 @@
     h3 will change the div's background color*@
 <div @bind-style="@Color" @bind-style:event="onchange"><h3>The background will be changed</h3></div>
 <b>Change background color: </b><input @bind="@Color" />
+<hr />
+<div>
+    <h3>Description: </h3><br />
+    <textarea @bind="@Description" @bind:event="oninput" style="width:500px;"></textarea>
 
+    <b>Word count: </b>@Description.Length
+
+
+</div>
 
 
 

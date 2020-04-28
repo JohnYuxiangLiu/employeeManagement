@@ -11,11 +11,15 @@ namespace EmployeeManagement.Web.Pages
         protected string Name { get; set; } = "Tom";
         protected string Gender { get; set; } = "Male";
         protected string Color { get; set; }="background-color:red";
+        protected string Description { get; set; } = string.Empty;
+        
 
         //two way data binding method
         protected void dataBind(ChangeEventArgs e)
         {
             Name = e.Value.ToString();
         }
+
+ 
     }
 }
