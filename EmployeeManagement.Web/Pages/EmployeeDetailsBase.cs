@@ -32,6 +32,9 @@ namespace EmployeeManagement.Web.Pages
         //assign ButtonText default value to Hide Text
         protected string ButtonText { get; set; } = "Hide Footer";
         protected string CssClass { get; set; }
+        //////////////////////////////////////////////
+
+
 
 
         //asign http to employee by init razor component once ready
@@ -63,5 +66,10 @@ namespace EmployeeManagement.Web.Pages
                 CssClass = null;
             }
         }
+
+
+
+
+
     }
 }

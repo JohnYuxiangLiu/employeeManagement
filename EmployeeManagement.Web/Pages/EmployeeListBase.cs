@@ -20,8 +20,22 @@ namespace EmployeeManagement.Web.Pages
 
         //provides to EmployeeList
         public bool ShowFooter { get; set; } = true;
+        ////////////////////////////////////
 
+        public int numCount { get; set; } = 0;
 
+        //COUNT num of employees
+        public void onCount(bool isSelected)
+        {
+            if (isSelected)
+            {
+                numCount++;
+            }
+            else
+            {
+                numCount--;
+            }
+        }
 
         //load all employees list LoadEmployees to initaliser
         protected override async Task OnInitializedAsync()

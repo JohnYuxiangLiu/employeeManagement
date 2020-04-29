@@ -16,7 +16,22 @@ namespace EmployeeManagement.Web.Pages
         //this ShowFooter get data from EmployeeListBase ShowFooter, and then pass to DisplayEmployee.razer
         //child must have params maching parents
         [Parameter]
-        public bool ShowFooter { get; set; } 
+        public bool ShowFooter { get; set; }
+        /////////////////////////////////
+        
+        //passing child checkbox true or false to parent count
+        [Parameter]
+        public EventCallback<bool> OnEmployeeSelection { get; set; }
+        protected bool IsSelected { get; set; }
+
+        //passing child to parent callback
+        public async Task CheckBoxChanged(ChangeEventArgs e)
+        {
+            IsSelected = (bool)e.Value;
+            await OnEmployeeSelection.InvokeAsync(IsSelected);
+        }
+        //////////////////////////////////////////
+        
 
 
     }
