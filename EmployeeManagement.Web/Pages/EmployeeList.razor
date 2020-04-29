@@ -2,7 +2,7 @@
 @inherits EmployeeListBase
 
 <h3>EmployeeList</h3>
-<h3>Employee Count: @numCount</h3>
+<h3>Employee Count: @SelectedEmployeesCount</h3>
 
 @* show footer *@
 <input type="checkbox" id="showFooter" @bind="ShowFooter"/>
@@ -21,7 +21,7 @@ else
         //passing 2 params to DisplayEmployee
         //employee from this class, ShowFooter from EmployeeListBase class=true
         //EventCallback is a func takes bool as param
-        <DisplayEmployee Employee="employee" ShowFooter="ShowFooter" onChildCallback="onCount"></DisplayEmployee>
+        <DisplayEmployee Employee="employee" ShowFooter="ShowFooter" OnEmployeeSelection="EmployeeSelectionChanged"></DisplayEmployee>
 
     }
 </div>

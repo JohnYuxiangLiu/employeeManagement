@@ -1,0 +1,12 @@
+﻿@inherits EditEmployeeBase
+@page "/editemployee/{id}"
+
+<h3>EditEmployee</h3>
+
+<EditForm>
+    <div>
+        <label for="firstName">Firstname</label>
+        <inputtext id="firstName" @bind="Employee.FirstName" @bind:event="oninput"></inputtext>
+    </div>
+
+</EditForm>
