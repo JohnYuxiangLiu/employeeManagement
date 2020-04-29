@@ -16,7 +16,7 @@
         <div class="card-footer text-center">
             @* interpolation: $, c# code @ *@
             <a href="@($"employeeDetails/{Employee.EmployeeId}")" class="btn btn-primary m-1">View</a>
-            <a href="#" class="btn btn-primary m-1">Edit</a>
+            <a href="@($"/editemployee/{Employee.EmployeeId}")" class="btn btn-primary m-1">Edit</a>
             <a href="#" class="btn btn-danger m-1">Delete</a>
         </div>
     }

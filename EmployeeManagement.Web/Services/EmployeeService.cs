@@ -21,6 +21,7 @@ namespace EmployeeManagement.Web.Services
         public async Task<Employee> GetEmployee(int id)
         {
             return await httpClient.GetJsonAsync<Employee>($"api/employees/{id}");
+
         }
 
         public async Task<IEnumerable<Employee>> GetEmployees()
