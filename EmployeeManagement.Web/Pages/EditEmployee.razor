@@ -1,20 +1,37 @@
 ﻿@inherits EditEmployeeBase
 @page "/editemployee/{Id}"
 
-<h3>EditEmployee</h3>
-
 @if (Employee == null)
 {
     <div class="spinner-border"></div>
 }
 else
 {
-    <EditForm Model="Employee">
-        <div>
-            <label for="firstName">Firstname</label>
-            <InputText id="firstName" @bind-Value="Employee.FirstName"  ></InputText>
+<EditForm Model="Employee">
+    <h3>EditEmployee</h3>
+    <hr />
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <InputText id="firstName" @bind-Value="Employee.FirstName" class="form-control" placeholder="First Name"></InputText>
         </div>
 
-    </EditForm>
+    </div>
+
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+            <InputText id="lastName" @bind-Value="Employee.LastName" class="form-control" placeholder="Last Name"></InputText>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <InputText id="email" @bind-Value="Employee.Email" placeholder="Email" class="form-control"></InputText>
+        </div>
+    </div>
+
+</EditForm>
 }
 
