@@ -38,5 +38,8 @@ namespace EmployeeManagement.Web.Pages
             DepartmentId = Employee.DepartmentId.ToString();
         }
 
+        //.............................................//
+        public Gender Gender { get; set; }
+
     }
 }
